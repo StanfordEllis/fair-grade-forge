@@ -1,0 +1,32 @@
+# Hardhat files
+cache/
+artifacts/
+typechain-types/
+coverage/
+coverage.json
+
+# Node
+node_modules/
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Deployment
+deployments/localhost/
+deployments/sepolia/
+
+# FHEVM
+fhevmTemp/
+
