@@ -137,22 +137,22 @@ export const TeacherDashboard = () => {
 
 
   return (
-    <section className="py-20 bg-muted/30 min-h-screen">
+    <section className="py-20 min-h-screen">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between mb-12">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
                 Teacher Dashboard
               </h2>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground text-lg">
                 Create assignments and grade student submissions
               </p>
             </div>
             
             <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
               <DialogTrigger asChild>
-                <Button className="gap-2">
+                <Button className="gap-2 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-md hover:shadow-lg transition-all">
                   <Plus className="h-4 w-4" />
                   Create Assignment
                 </Button>

@@ -468,16 +468,19 @@ export const AssignmentCard = ({ assignmentId, chainId, isTeacher = false }: Ass
   const hasGrade = hasGradeData === true;
 
   return (
-    <Card className="p-6">
+    <Card className="p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-2 hover:border-primary/30">
       <div className="flex items-start justify-between mb-4">
-        <div className="p-2 rounded-lg bg-primary/10">
+        <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20">
           <FileText className="h-5 w-5 text-primary" />
         </div>
         {hasSubmitted && !isTeacher && (
-          <CheckCircle className="h-5 w-5 text-blue-500" />
+          <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-green-500/10 border border-green-500/20">
+            <CheckCircle className="h-4 w-4 text-green-500" />
+            <span className="text-xs font-medium text-green-600 dark:text-green-400">Submitted</span>
+          </div>
         )}
       </div>
-      <h3 className="font-semibold text-foreground mb-2">
+      <h3 className="font-bold text-lg text-foreground mb-2">
         {title || `Assignment ${assignmentId + 1}`}
       </h3>
       <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
@@ -485,12 +488,12 @@ export const AssignmentCard = ({ assignmentId, chainId, isTeacher = false }: Ass
       </p>
       <div className="space-y-2 mb-4">
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <Clock className="h-4 w-4" />
+          <Clock className="h-4 w-4 text-primary/70" />
           <span>{formatDeadline(deadline)}</span>
         </div>
         <div className="flex items-center gap-2 text-sm">
-          <Users className="h-4 w-4" />
-          <span className="font-medium">
+          <Users className="h-4 w-4 text-secondary" />
+          <span className="font-medium text-foreground">
             {Number(submissionCount)} submission{Number(submissionCount) !== 1 ? "s" : ""}
           </span>
         </div>
@@ -498,8 +501,7 @@ export const AssignmentCard = ({ assignmentId, chainId, isTeacher = false }: Ass
       {isTeacher && deadlinePassed && (
         <>
           <Button 
-            variant="outline" 
-            className="w-full" 
+            className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-md hover:shadow-lg transition-all" 
             size="sm"
             onClick={() => setIsGradingDialogOpen(true)}
           >
@@ -516,14 +518,21 @@ export const AssignmentCard = ({ assignmentId, chainId, isTeacher = false }: Ass
         <>
           {/* Display grade section */}
           {hasGrade && (
-            <div className="mb-4 p-3 bg-muted rounded-lg border">
+            <div className="mb-4 p-4 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 rounded-xl border-2 border-primary/20">
               {grade !== null ? (
                 <div className="flex items-center justify-between">
                   <div>
                     <span className="text-sm text-muted-foreground">Your Grade:</span>
-                    <span className="ml-2 text-lg font-bold text-primary">{grade}/100</span>
+                    <div className="mt-1">
+                      <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                        {grade}
+                      </span>
+                      <span className="text-lg font-semibold text-muted-foreground">/100</span>
+                    </div>
                   </div>
-                  <CheckCircle className="h-5 w-5 text-green-500" />
+                  <div className="p-2 rounded-full bg-green-500/20">
+                    <CheckCircle className="h-5 w-5 text-green-500" />
+                  </div>
                 </div>
               ) : (
                 <Button
@@ -561,7 +570,7 @@ export const AssignmentCard = ({ assignmentId, chainId, isTeacher = false }: Ass
           ) : (
             <Dialog open={isSubmitDialogOpen} onOpenChange={setIsSubmitDialogOpen}>
               <DialogTrigger asChild>
-                <Button className="w-full" size="sm" disabled={!isConnected}>
+                <Button className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-md hover:shadow-lg transition-all" size="sm" disabled={!isConnected}>
                   <Send className="h-4 w-4 mr-2" />
                   Submit Assignment
                 </Button>

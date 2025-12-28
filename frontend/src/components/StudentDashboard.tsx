@@ -49,14 +49,14 @@ export const StudentDashboard = () => {
   }, [totalAssignments]);
 
   return (
-    <section className="py-20 bg-muted/30 min-h-screen">
+    <section className="py-20 min-h-screen">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
               Student Dashboard
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-lg">
               View and submit your encrypted assignments
             </p>
           </div>

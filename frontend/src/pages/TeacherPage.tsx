@@ -71,7 +71,7 @@ const TeacherPage = () => {
 
   if (!isConnected) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen">
         <Header />
         <div className="container mx-auto px-4 py-20 text-center">
           <p className="text-muted-foreground">Please connect your wallet</p>
@@ -83,7 +83,7 @@ const TeacherPage = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen">
         <Header />
         <div className="container mx-auto px-4 py-20 text-center">
           <p className="text-muted-foreground">Loading...</p>
@@ -95,7 +95,7 @@ const TeacherPage = () => {
 
   if (isError || !teacherAddress) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen">
         <Header />
         <div className="container mx-auto px-4 py-20 text-center">
           <p className="text-muted-foreground">Error loading contract. Please ensure the contract is deployed.</p>
@@ -108,7 +108,7 @@ const TeacherPage = () => {
 
   if (address && teacherAddress && address.toLowerCase() !== teacherAddress.toLowerCase()) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen">
         <Header />
         <div className="container mx-auto px-4 py-20 text-center">
           <p className="text-muted-foreground">Access denied. Only the teacher can access this page.</p>
@@ -124,7 +124,7 @@ const TeacherPage = () => {
 
   // User is the teacher, show dashboard
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Header />
       <TeacherDashboard />
       <Footer />

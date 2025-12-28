@@ -64,6 +64,25 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background-color: hsl(280, 20%, 96%) !important;
+    background-image: 
+      linear-gradient(to bottom, transparent 23px, hsl(280, 15%, 90%) 23px, hsl(280, 15%, 90%) 24px, transparent 24px),
+      linear-gradient(to right, hsl(280, 10%, 92%) 1px, transparent 1px);
+    background-size: 100% 24px, 20px 100%;
+    background-position: 0 0, 0 0;
+    min-height: 100vh;
+  }
+  
+  .dark body {
+    background-color: hsl(280, 30%, 8%) !important;
+    background-image: 
+      linear-gradient(to bottom, transparent 23px, hsl(280, 30%, 14%) 23px, hsl(280, 30%, 14%) 24px, transparent 24px),
+      linear-gradient(to right, hsl(280, 30%, 15%) 1px, transparent 1px);
+    background-size: 100% 24px, 20px 100%;
+  }
+  
+  #root {
+    background: transparent !important;
   }
 }
